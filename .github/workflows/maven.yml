@@ -1,0 +1,52 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+# test
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    - name: Archive ROOT.war to ROOT.zip
+      run: zip -j ./ROOT.zip /home/runner/work/api.example.co.kr/api.example.co.kr/target/ROOT.war ./appspec.yml
+
+    - name: Access to AWS
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-2
+
+    - name: Upload ROOT.zip
+      run: aws s3 cp --region ap-northeast-2 ./ROOT.zip s3://api.example.co.kr.bucket/ROOT.zip
+
+    - name: 🚀 Deploy to EC2 with CodeDeploy
+        run: aws deploy create-deployment
+          --application-name codedeploy
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name ${{ env.DEPLOYMENT_GROUP_NAME }}
+          --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=zip,key=${{ env.S3_BUCKET_DIR_NAME }}/$GITHUB_SHA.zip

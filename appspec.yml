@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /data1/was
+    excludes:
+      - '!appspec.yml'
+
+file_exists_behavior: OVERWRITE
+
+permissions:
+  - object: /data1/was
+    pattern: '**'
+    owner: root
+    group: root
+
+#hooks:
+#  AfterInstall:
+#    - location: ./.aws/.aws-codedploy-scripts/stop.sh
+#      timout: 30
+#      runas: root
+#  ApplicationStart:
+#    - location: ./.aws/.aws-codedploy-scripts/start.sh
+#      timeout: 60
+#      runas: root
