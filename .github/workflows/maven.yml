@@ -37,9 +37,6 @@ jobs:
       if: ${{ success() }}
       run: echo "Set up JDK 11 is succeeded"
 
-    - name: Setup Gradle's permission
-      run: chmod +x gradlew
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
