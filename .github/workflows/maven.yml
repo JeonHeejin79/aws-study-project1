@@ -41,7 +41,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Archive ROOT.war to ROOT.zip
-      run: zip -j ./ROOT.zip /home/runner/work/api.example.co.kr/api.example.co.kr/target/ROOT.war ./appspec.yml
+      run: zip -j ./ROOT.zip /home/runner/work/aws-study-project1/aws-study-project1/target/ROOT.war ./appspec.yml
 
     - name: Access to AWS
       uses: aws-actions/configure-aws-credentials@v2
