@@ -35,11 +35,12 @@ hooks:
 #    group: root
 
 #hooks:
+#  ApplicationStop:
+#    - location: scripts/stop.sh
+#      runas: root
 #  AfterInstall:
-#    - location: ./.aws/.aws-codedploy-scripts/stop.sh
-#      timout: 30
+#    - location: scripts/initialize.sh
 #      runas: root
 #  ApplicationStart:
-#    - location: ./.aws/.aws-codedploy-scripts/start.sh
-#      timeout: 60
+#    - location: scripts/start.sh
 #      runas: root
