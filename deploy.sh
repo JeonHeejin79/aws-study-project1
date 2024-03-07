@@ -10,6 +10,6 @@
 #REPOSITORY=/home/ubuntu/build/
 
 #sudo systemctl start springservernohup
-java -jar /home/ubuntu/build/ROOT.war 1>/dev/null 2>&1 &
+#java -jar /home/ubuntu/build/ROOT.war 1>/dev/null 2>&1 &
 
 
