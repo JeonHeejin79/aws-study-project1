@@ -1,18 +1,38 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /data1/was
-    excludes:
-      - '!appspec.yml'
-
-file_exists_behavior: OVERWRITE
+  - source:  /
+    destination: /home/ec2-user/build/
 
 permissions:
-  - object: /data1/was
-    pattern: '**'
-    owner: root
-    group: root
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
+hooks:
+  BeforeInstall:
+    - location: deploy-before.sh
+      runas: ec2-user
+  ApplicationStart:
+    - location: deploy.sh
+      runas: ec2-user
+
+#version: 0.0
+#os: linux
+#files:
+#  - source: /
+#    destination: /data1/was
+#    excludes:
+#      - '!appspec.yml'
+#
+#file_exists_behavior: OVERWRITE
+#
+#permissions:
+#  - object: /data1/was
+#    pattern: '**'
+#    owner: root
+#    group: root
 
 #hooks:
 #  AfterInstall:
