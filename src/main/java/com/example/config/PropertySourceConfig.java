@@ -8,11 +8,11 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 public class PropertySourceConfig {
 
-    @Bean(name = "app")
-    public PropertiesFactoryBean propertiesFactoryBeanByApp() throws Exception {
-        PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
-        ClassPathResource classPathResource = new ClassPathResource("properties/app.properties");
-        propertiesFactoryBean.setLocation(classPathResource);
-        return propertiesFactoryBean;
-    }
+//    @Bean(name = "app")
+//    public PropertiesFactoryBean propertiesFactoryBeanByApp() throws Exception {
+//        PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
+//        ClassPathResource classPathResource = new ClassPathResource("properties/app.properties");
+//        propertiesFactoryBean.setLocation(classPathResource);
+//        return propertiesFactoryBean;
+//    }
 }
