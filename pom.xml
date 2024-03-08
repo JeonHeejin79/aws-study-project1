@@ -129,6 +129,7 @@
                     <encoding>${encoding}</encoding>
                 </configuration>
             </plugin>
+            <!-- spring boot maven war 배포시 필요 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
