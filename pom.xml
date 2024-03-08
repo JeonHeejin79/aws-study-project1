@@ -66,6 +66,12 @@
         </dependency>
         <!-- spring -->
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </dependency>
+
         <!-- JSP 엔진 -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -135,18 +141,6 @@
                 <version>3.2.0</version>
                 <configuration>
                     <warSourceExcludes>%regex[resources/(?!inc/).*]</warSourceExcludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>io.home.test.Test</mainClass>
-                        </manifest>
-                    </archive>
                 </configuration>
             </plugin>
         </plugins>
