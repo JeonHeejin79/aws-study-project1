@@ -1,4 +1,4 @@
 #!/bin/bash
-java -jar /home/ubuntu/build/ROOT.war
+sudo java -jar /home/ubuntu/build/ROOT.war
 
 
