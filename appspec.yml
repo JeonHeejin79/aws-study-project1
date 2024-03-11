@@ -15,5 +15,5 @@ hooks:
 #    - location: /home/ubuntu/build/stop.sh
 #      runas: root
   ApplicationStart:
-    - location: /home/ubuntu/build/start.sh
+    - location: start.sh
       runas: root
