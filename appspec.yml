@@ -12,35 +12,8 @@ permissions:
 
 hooks:
   BeforeInstall:
-    - location: ./stop.sh
+    - location: /home/ubuntu/build/stop.sh
       runas: root
   ApplicationStart:
-    - location: ./start.sh
+    - location: /home/ubuntu/build/start.sh
       runas: root
-
-#version: 0.0
-#os: linux
-#files:
-#  - source: /
-#    destination: /data1/was
-#    excludes:
-#      - '!appspec.yml'
-#
-#file_exists_behavior: OVERWRITE
-#
-#permissions:
-#  - object: /data1/was
-#    pattern: '**'
-#    owner: root
-#    group: root
-
-#hooks:
-#  ApplicationStop:
-#    - location: scripts/stop.sh
-#      runas: root
-#  AfterInstall:
-#    - location: scripts/initialize.sh
-#      runas: root
-#  ApplicationStart:
-#    - location: scripts/start.sh
-#      runas: root
