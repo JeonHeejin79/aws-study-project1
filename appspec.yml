@@ -3,10 +3,13 @@ os: linux
 files:
   - source:  /
     destination: /home/ubuntu/build/
+  - source:  /.start.sh
+    destination: /home/ubuntu/build/
 
 permissions:
   - object: /
     pattern: "**"
+    mode: '755'
     owner: root
     group: root
 

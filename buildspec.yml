@@ -1,0 +1,4 @@
+artifacts:
+  files:
+    - appspec.yml # code-deploy를 위해
+    - start.sh # code-deploy를 위해
