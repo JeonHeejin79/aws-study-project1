@@ -42,7 +42,7 @@ jobs:
 
     # 프로젝트 파일 압축
     - name: Archive ROOT.war to ROOT.zip
-      run: zip -j ./ROOT.zip /home/runner/work/aws-study-project1/aws-study-project1/target/ROOT.war ./appspec.yml .start.sh
+      run: zip -j ./ROOT.zip /home/runner/work/aws-study-project1/aws-study-project1/target/ROOT.war ./appspec.yml ./start.sh
 
     # AWS 인증
     - name: Access to AWS
