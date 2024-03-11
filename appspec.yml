@@ -12,9 +12,9 @@ permissions:
     group: root
 
 hooks:
-#  BeforeInstall:
-#    - location: /home/ubuntu/build/stop.sh
-#      runas: root
+  BeforeInstall:
+    - location: stop.sh
+      runas: root
   ApplicationStart:
     - location: start.sh
       runas: root
