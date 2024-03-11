@@ -1,3 +1,4 @@
 #!/bin/bash
-cd /home/ubuntu/im-sprint-practice-deploy/server
-authbind --deep pm2 start app.js
+sudo nohup java -jar /home/ubuntu/build/ROOT.war 1>/dev/null 2>&1 &
+
+

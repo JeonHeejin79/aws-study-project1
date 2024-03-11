@@ -11,11 +11,11 @@ permissions:
     group: root
 
 hooks:
-#  BeforeInstall:
-#    - location: deploy-before.sh
-#      runas: root
+  BeforeInstall:
+    - location: ./stop.sh
+      runas: root
   ApplicationStart:
-    - location: deploy.sh
+    - location: ./start.sh
       runas: root
 
 #version: 0.0
